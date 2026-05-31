@@ -42,14 +42,14 @@ I am a computer vision engineer at [StradVision](https://www.stradvision.com/), 
     margin: 0 0 1.25rem;
   }
 
-  .career-timeline__list {
+  .career-timeline-list {
     list-style: none;
     margin: 0;
     padding: 0 0 0 0.25rem;
     position: relative;
   }
 
-  .career-timeline__item {
+  .career-timeline-item {
     display: grid;
     grid-template-columns: 2.5rem 1fr;
     gap: 0 1rem;
@@ -57,11 +57,11 @@ I am a computer vision engineer at [StradVision](https://www.stradvision.com/), 
     position: relative;
   }
 
-  .career-timeline__item:last-child {
+  .career-timeline-item:last-child {
     padding-bottom: 0;
   }
 
-  .career-timeline__item:not(:last-child)::before {
+  .career-timeline-item:not(:last-child)::before {
     background: color-mix(in srgb, currentColor 18%, transparent);
     bottom: 0;
     content: "";
@@ -71,7 +71,7 @@ I am a computer vision engineer at [StradVision](https://www.stradvision.com/), 
     width: 2px;
   }
 
-  .career-timeline__icon {
+  .career-timeline-icon {
     align-items: center;
     background: color-mix(in srgb, var(--global-theme-color, #2698ba) 16%, transparent);
     border: 1px solid color-mix(in srgb, var(--global-theme-color, #2698ba) 35%, transparent);
@@ -85,48 +85,48 @@ I am a computer vision engineer at [StradVision](https://www.stradvision.com/), 
     z-index: 1;
   }
 
-  .career-timeline__content {
+  .career-timeline-content {
     min-width: 0;
     padding-top: 0.15rem;
   }
 
-  .career-timeline__title {
+  .career-timeline-title {
     font-size: 1rem;
     font-weight: 600;
     line-height: 1.35;
     margin: 0 0 0.2rem;
   }
 
-  .career-timeline__org {
+  .career-timeline-org {
     color: color-mix(in srgb, currentColor 72%, transparent);
     font-size: 0.95rem;
     line-height: 1.4;
     margin: 0 0 0.15rem;
   }
 
-  .career-timeline__org a {
+  .career-timeline-org a {
     color: inherit;
     text-decoration: none;
   }
 
-  .career-timeline__org a:hover {
+  .career-timeline-org a:hover {
     color: var(--global-theme-color, #2698ba);
     text-decoration: underline;
   }
 
-  .career-timeline__meta,
-  .career-timeline__detail {
+  .career-timeline-meta,
+  .career-timeline-detail {
     color: color-mix(in srgb, currentColor 58%, transparent);
     font-size: 0.9rem;
     line-height: 1.4;
     margin: 0;
   }
 
-  .career-timeline__detail {
+  .career-timeline-detail {
     margin-top: 0.15rem;
   }
 
-  .career-timeline__heading-spaced {
+  .career-timeline-heading-spaced {
     margin-top: 2rem;
   }
 </style>
@@ -134,49 +134,51 @@ I am a computer vision engineer at [StradVision](https://www.stradvision.com/), 
 <section class="career-timeline" aria-label="Career timeline">
   {% if career.experience.size > 0 %}
     <h2>Experience</h2>
-    <ol class="career-timeline__list">
+    <ol class="career-timeline-list">
       {% for item in career.experience %}
-        <li class="career-timeline__item">
-          <span class="career-timeline__icon" aria-hidden="true"><i class="fa-solid fa-briefcase"></i></span>
-          <div class="career-timeline__content">
-            <p class="career-timeline__title">{{ item.role }}</p>
-            <p class="career-timeline__org">
+        <li class="career-timeline-item">
+          <span class="career-timeline-icon" aria-hidden="true"><i class="fa-solid fa-briefcase"></i></span>
+          <div class="career-timeline-content">
+            <p class="career-timeline-title">{{ item.role }}</p>
+            <p class="career-timeline-org">
               {% if item.url %}
                 <a href="{{ item.url }}" target="_blank" rel="noopener noreferrer">{{ item.organization }}</a>
               {% else %}
                 {{ item.organization }}
               {% endif %}
             </p>
-            <p class="career-timeline__meta">{{ item.start }} – {{ item.end }}</p>
+            <p class="career-timeline-meta">{{ item.start }} – {{ item.end }}</p>
           </div>
         </li>
       {% endfor %}
     </ol>
   {% endif %}
 
-  {% if career.education.size > 0 %}
-    <h2{% if career.experience.size > 0 %} class="career-timeline__heading-spaced"{% endif %}>Education</h2>
-    <ol class="career-timeline__list">
-      {% for item in career.education %}
-        <li class="career-timeline__item">
-          <span class="career-timeline__icon" aria-hidden="true"><i class="fa-solid fa-graduation-cap"></i></span>
-          <div class="career-timeline__content">
-            <p class="career-timeline__title">{{ item.degree }}</p>
-            <p class="career-timeline__org">
-              {% if item.url %}
-                <a href="{{ item.url }}" target="_blank" rel="noopener noreferrer">{{ item.institution }}</a>
-              {% else %}
-                {{ item.institution }}
-              {% endif %}
-            </p>
-            <p class="career-timeline__meta">{{ item.start }} – {{ item.end }}</p>
-            {% if item.detail %}
-              <p class="career-timeline__detail">{{ item.detail }}</p>
-            {% endif %}
-          </div>
-        </li>
-      {% endfor %}
-    </ol>
-  {% endif %}
+{% if career.education.size > 0 %}
+<h2{% if career.experience.size > 0 %} class="career-timeline-heading-spaced"{% endif %}>Education</h2>
+
+<ol class="career-timeline-list">
+{% for item in career.education %}
+<li class="career-timeline-item">
+<span class="career-timeline-icon" aria-hidden="true"><i class="fa-solid fa-graduation-cap"></i></span>
+<div class="career-timeline-content">
+<p class="career-timeline-title">{{ item.degree }}</p>
+<p class="career-timeline-org">
+{% if item.url %}
+<a href="{{ item.url }}" target="_blank" rel="noopener noreferrer">{{ item.institution }}</a>
+{% else %}
+{{ item.institution }}
+{% endif %}
+</p>
+<p class="career-timeline-meta">{{ item.start }} – {{ item.end }}</p>
+{% if item.detail %}
+<p class="career-timeline-detail">{{ item.detail }}</p>
+{% endif %}
+</div>
+</li>
+{% endfor %}
+</ol>
+{% endif %}
+
 </section>
 {% endif %}
