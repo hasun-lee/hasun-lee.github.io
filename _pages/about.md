@@ -26,8 +26,6 @@ latest_posts:
   limit: 3
 ---
 
-I am a computer vision engineer at [StradVision](https://www.stradvision.com/), working on 3D perception for multi-fisheye automotive cameras, synthetic data pipelines, and production ADAS features. My recent work includes LSS-based 3D detection, 3D asset harvesting for parking perception, and fisheye image synthesis in CARLA.
+I am a computer vision engineer at [StradVision](https://www.stradvision.com/), working on 3D perception for multi-fisheye automotive cameras and production ADAS features. I received my M.S. in Mechanical Engineering from [Seoul National University](https://www.snu.ac.kr/) (INRoL) and my B.S. in Physics from [POSTECH](https://www.postech.ac.kr/).
 
-I received my M.S. in Mechanical Engineering from [Seoul National University](https://www.snu.ac.kr/) (INRoL, Prof. Dongjun Lee), where I studied aerial manipulation, contact wrench estimation with distributed IMUs, and control-moment-gyro attitude control. My thesis focused on contact wrench estimation for a large-scale operational aerial skeleton system.
-
-I hold a B.S. in Physics from [POSTECH](https://www.postech.ac.kr/) (Magna Cum Laude), with undergraduate research on a 3D-printed Watt balance for mass measurement using electromagnetic force.
+{% include career_timeline.liquid %}

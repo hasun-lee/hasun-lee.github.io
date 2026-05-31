@@ -1,0 +1,21 @@
+experience:
+  - role: Computer Vision Engineer
+    organization: StradVision Corp.
+    url: https://www.stradvision.com/
+    start: September 2021
+    end: Present
+
+education:
+  - degree: M.S. in Mechanical Engineering
+    institution: Seoul National University
+    url: https://www.snu.ac.kr/
+    detail: INRoL · Prof. Dongjun Lee
+    start: March 2019
+    end: August 2021
+
+  - degree: B.S. in Physics
+    institution: POSTECH
+    url: https://www.postech.ac.kr/
+    detail: Magna Cum Laude
+    start: March 2014
+    end: February 2019
